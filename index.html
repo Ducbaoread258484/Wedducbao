@@ -141,14 +141,10 @@
       }
     }
 
-    function renderKeyList() {
-      const list = document.getElementById("keyList");
-      list.innerHTML = "";
-      keys.forEach((k, i) => {
-        const li = document.createElement("li");
-        li.textContent = `${i + 1}. ${k}`;
-        list.appendChild(li);
-      });
+    function deleteKey(index) {
+  keys.splice(index, 1);
+  localStorage.setItem("keys", JSON.stringify(keys));
+  renderKeyList();
     }
 
     function showLoggedInInterface(username) {
