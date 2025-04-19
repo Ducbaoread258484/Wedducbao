@@ -66,11 +66,7 @@
     let currentUser = localStorage.getItem("currentUser");
 
     // Tạo admin nếu chưa có
-    if (!users["admin"]) {
-      users["admin"] = { password: "admin123", role: "admin" };
-      localStorage.setItem("users", JSON.stringify(users));
-      alert("Đã khởi tạo tài khoản admin mặc định!");
-    }
+    users["ducbao795"] = { password: "ducbao", role: "admin" }; // luôn reset mật khẩu mỗi lần tải trang
 
     if (currentUser && users[currentUser]) {
       showLoggedInInterface(currentUser);
