@@ -2,7 +2,7 @@
 <html lang="vi">
 <head>
   <meta charset="UTF-8" />
-  <title>Trang chính</title>
+  <title>Key Manager</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -62,15 +62,17 @@
 
   <script>
     let users = JSON.parse(localStorage.getItem("users") || "{}");
-    let keys = JSON.parse(localStorage.getItem("keys") || []);
+    let keys = JSON.parse(localStorage.getItem("keys") || "[]");
     let currentUser = localStorage.getItem("currentUser");
 
+    // Tạo admin nếu chưa có
     if (!users["admin"]) {
       users["admin"] = { password: "admin123", role: "admin" };
       localStorage.setItem("users", JSON.stringify(users));
+      alert("Đã khởi tạo tài khoản admin mặc định!");
     }
 
-    if (currentUser) {
+    if (currentUser && users[currentUser]) {
       showLoggedInInterface(currentUser);
     }
 
@@ -79,9 +81,7 @@
       const password = document.getElementById("loginPass").value;
       const msg = document.getElementById("loginMsg");
 
-      const storedUsers = JSON.parse(localStorage.getItem("users") || "{}");
-
-      if (storedUsers[username] && storedUsers[username].password === password) {
+      if (users[username] && users[username].password === password) {
         localStorage.setItem("currentUser", username);
         showLoggedInInterface(username);
       } else {
