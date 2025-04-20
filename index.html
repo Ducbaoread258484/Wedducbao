@@ -4,30 +4,27 @@
   <meta charset="UTF-8" />
   <title>Key Manager</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      padding: 20px;
-      max-width: 400px;
-      margin: auto;
-    }
-    input, button {
-      width: 100%;
-      padding: 8px;
-      margin: 5px 0;
-    }
-    #logoutBtn {
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      padding: 5px 10px;
-      font-size: 12px;
-    }
-    #adminSection, #userSection, #loginRegister {
-      margin-top: 20px;
-    }
-  </style>
-</head>
-<body>
+    <body>
+  <div class="container">
+    <h1>Quản lý Key</h1>
+    
+    <div class="form-card">
+      <h2>Đăng nhập</h2>
+      <input type="text" id="loginUsername" placeholder="Tên tài khoản" />
+      <input type="password" id="loginPassword" placeholder="Mật khẩu" />
+      <button onclick="login()">Đăng nhập</button>
+    </div>
+
+    <div class="form-card">
+      <h2>Đăng ký</h2>
+      <input type="text" id="registerUsername" placeholder="Tên tài khoản" />
+      <input type="password" id="registerPassword" placeholder="Mật khẩu" />
+      <button onclick="register()">Đăng ký</button>
+    </div>
+
+    <p id="message"></p>
+  </div>
+</body>
   <button id="logoutBtn" onclick="logout()" style="display: none;">Đăng xuất</button>
 
   <div id="loginRegister">
